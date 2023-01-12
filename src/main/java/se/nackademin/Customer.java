@@ -1,4 +1,4 @@
-package exercise;
+package se.nackademin;
 
 public class Customer {
     private String name;

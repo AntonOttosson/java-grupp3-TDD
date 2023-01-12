@@ -1,4 +1,4 @@
-package exercise;
+package se.nackademin;
 
 public class Main {
 
