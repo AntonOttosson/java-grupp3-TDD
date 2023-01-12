@@ -1,8 +1,8 @@
-package exercise;
+package se.nackademin;
 
-public class Caps extends Hats {
+public class Cap extends Hat {
 
-    Caps(String name, String brand, String size, String color, float price) {
+    Cap(String name, String brand, String size, String color, float price) {
         super(name, brand, size, color, price);
         // this.name = name;
         // this.brand = brand;
