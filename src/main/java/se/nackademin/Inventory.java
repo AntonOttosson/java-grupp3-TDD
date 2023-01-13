@@ -1,12 +1,10 @@
 package se.nackademin;
 
-import java.util.Map;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class Inventory {
     private String vendor;
-    private String productName;
+    public String productName;
     private Boolean inStock;
     public HashMap<String, Integer> productMap = new HashMap<String, Integer>();
 
@@ -22,12 +20,14 @@ public class Inventory {
         this.vendor = vendor;
     }
 
-    public void setProductName(String productName) {
+    public String setProductName(String productName) {
         this.productName = productName;
+        return this.productName;
     }
 
-    private Integer getProductName(String productName) {
-        return productMap.get(productName);
+    public String getProductName() {
+        productMap.get(productName);
+        return productName;
     }
 
     public Boolean checkStock(String productName) {
