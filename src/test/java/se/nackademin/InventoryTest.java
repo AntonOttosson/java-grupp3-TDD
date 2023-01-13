@@ -12,10 +12,10 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat; */
 
 public class InventoryTest {
+    Inventory inventory = new Inventory();
 
     @Test
     public void checkStockFalse() {
-        Inventory inventory = new Inventory();
         inventory.addToStock("Hatt", 100);
         boolean check = inventory.checkStock("Keps");
         assertFalse(check);
@@ -23,7 +23,6 @@ public class InventoryTest {
 
     @Test
     public void checkStockTrue() {
-        Inventory inventory = new Inventory();
         inventory.addToStock("Keps", 100);
         boolean check = inventory.checkStock("Keps");
         assertTrue(check);
@@ -31,20 +30,17 @@ public class InventoryTest {
 
     @Test
     public void shouldAddToStock() {
-        Inventory inventory = new Inventory();
         inventory.addToStock("Keps", 53);
         assertEquals("{Keps=53}", inventory.productMap.toString());
     }
 
     @Test
     public void shouldSetNewProductName() {
-        Inventory inventory = new Inventory();
         assertEquals(inventory.setProductName("Hatt 2"), inventory.productName);
     }
 
     @Test
     public void shouldGetProductName() {
-        Inventory inventory = new Inventory();
         inventory.setProductName("Basker");
         String check = inventory.getProductName();
         assertEquals("Basker", check);
@@ -52,7 +48,31 @@ public class InventoryTest {
 
     @Test
     public void shouldReturnNullOnGetProductName() {
-        Inventory inventory = new Inventory();
         assertNull(inventory.getProductName());
+    }
+
+    @Test
+    public void shouldSetNewVendor() {
+        String vendor = inventory.setNewVendor("Postnord");
+        assertEquals("Postnord", vendor);
+    }
+
+    @Test
+    public void shouldGetVendorName() {
+        inventory.setNewVendor("Postnord");
+        String vendorName = inventory.getVendorName(0);
+        assertEquals("Postnord", vendorName);
+    }
+
+    @Test
+    public void shouldCheckVendorAvailabilityTrue() {
+        boolean checkVendor = inventory.checkVendorAvailability();
+        assertTrue(checkVendor);
+    }
+
+    @Test
+    public void shouldCheckVendorAvailanilityFalse() {
+        boolean checkVendor = inventory.checkVendorAvailability();
+        assertFalse(checkVendor);
     }
 }
