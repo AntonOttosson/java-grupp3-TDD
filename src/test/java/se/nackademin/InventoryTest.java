@@ -66,13 +66,17 @@ public class InventoryTest {
 
     @Test
     public void shouldCheckVendorAvailabilityTrue() {
-        boolean checkVendor = inventory.checkVendorAvailability();
+        inventory.setNewVendor("Postnord");
+        String vendorName = inventory.getVendorName(0);
+        boolean checkVendor = inventory.checkVendorAvailability(vendorName);
         assertTrue(checkVendor);
     }
 
     @Test
     public void shouldCheckVendorAvailanilityFalse() {
-        boolean checkVendor = inventory.checkVendorAvailability();
+        inventory.setNewVendor("");
+        String vendorName = inventory.getVendorName(0);
+        boolean checkVendor = inventory.checkVendorAvailability(vendorName);
         assertFalse(checkVendor);
     }
 }
