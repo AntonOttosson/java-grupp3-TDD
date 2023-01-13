@@ -6,13 +6,15 @@ import java.util.List;
 
 public class Inventory {
     private String vendor;
+    private boolean vendorExists;
     public String productName;
     private Boolean inStock;
     public HashMap<String, Integer> productMap = new HashMap<String, Integer>();
     public List<String> vendorList = new ArrayList<>();
 
-    public Inventory(String vendor, String productName, Boolean inStock) {
+    public Inventory(String vendor, String productName, Boolean inStock, Boolean vendorExists) {
         this.vendor = vendor;
+        this.vendorExists = vendorExists;
         this.productName = productName;
         this.inStock = inStock;
     }
@@ -30,9 +32,17 @@ public class Inventory {
         return element;
     }
 
-    public void checkVendorAvailability() {
-        
+    public Boolean checkVendorAvailability(String element) {
+        if (element.isBlank()) {
+            this.vendorExists = false;
+            return this.vendorExists;
+        }
+        else {
+            this.vendorExists = true;
+            return this.vendorExists;
+        }
     }
+
 
     public String setProductName(String productName) {
         this.productName = productName;
