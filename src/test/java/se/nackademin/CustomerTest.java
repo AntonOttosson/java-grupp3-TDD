@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-
+import org.hamcrest.core.IsInstanceOf;
 import org.junit.Test;
 
 public class CustomerTest {
@@ -43,8 +43,17 @@ public class CustomerTest {
     }
 
     @Test
-    public void CustomerObjectIsNotNull() {
-        Customer cust3 = new Customer("Björn", "Adolffsson", "Julgränd", "bjorn@jobb.nu", 46738996655L);
-        assertNotNull(cust3);
+
+    public void GivenChangeEmail_whenChangeEmail_theReturnTrue() {
+        Customer cust4 = new Customer("Björn", "Adolffsson", "Julgränd", "bjorn@jobb.nu", 46738996655L);
+        cust4.changeEmail("bjorn@gmail.com");
+        assertEquals(null, cust4.getEmail(), "bjorn@gmail.com");
     }
+
+    @Test
+    public void CustomerObjectIsNotNull() {
+        Customer cust5 = new Customer("Björn", "Adolffsson", "Julgränd", "bjorn@jobb.nu", 46738996655L);
+        assertNotNull(cust5);
+    }
+
 }
