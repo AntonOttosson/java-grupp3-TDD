@@ -1,5 +1,8 @@
 package se.nackademin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
     private String firstname;
     private String lastname;
@@ -8,13 +11,24 @@ public class Customer {
     private Long phoneNumber;
     private int customerId;
 
+    public List<String> customerList = new ArrayList<>();
+
+
     Customer(String firstname, String lastname, String adress, String email, Long phoneNumber) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.adress = adress;
         this.email = email;
         this.phoneNumber = phoneNumber;
+
+        customerList.add(this.firstname + " " +  this.lastname);
       
+    }
+
+    public Customer() {}
+
+    public List<String> getCustomerList() {
+        return customerList;
     }
 
     public Long getPhoneNumber() {
