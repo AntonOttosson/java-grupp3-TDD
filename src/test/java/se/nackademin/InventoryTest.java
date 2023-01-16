@@ -4,14 +4,19 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
-/* import org.hamcrest.collection.IsMapContaining;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
-import static org.hamcrest.Matchers.*;
+import org.hamcrest.Matcher;
+import org.hamcrest.collection.IsArrayContaining;
+import org.hamcrest.collection.IsEmptyCollection;
+import org.hamcrest.collection.IsMapContaining;
+import org.hamcrest.core.IsAnything;
+import org.hamcrest.core.IsInstanceOf;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.MatcherAssert.assertThat; */
+
+import static org.hamcrest.MatcherAssert.assertThat;
 
 //import java.io.IOException;
 
@@ -28,6 +33,21 @@ public class InventoryTest {
         Inventory inventoryy = new Inventory(null, null, null, false, 0);
         String vendorName = inventoryy.getVendorName(0);
         assertNull(vendorName);
+    }
+
+    @Test
+    public void shouldTestListIsEmpty() {
+        assertThat(inventory.vendorList, IsEmptyCollection.empty());
+    }
+
+    @Test
+    public void shouldTestMapIsCreatedAndEmpty() {
+        assertThat(inventory.productMap.size(), is(0));
+    }
+
+    @Test
+    public void shouldTestListIsCreated() {
+        assertThat(inventory.vendorList.size(), is(0));
     }
 
     @Test
