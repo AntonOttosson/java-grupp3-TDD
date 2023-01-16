@@ -58,7 +58,7 @@ public class Customer {
         this.lastname = newValue;
     }
 
-    private void setEmail(String newValue) {
+    public void setEmail(String newValue) {
         this.email = newValue.trim();
     }
 
@@ -74,7 +74,7 @@ public class Customer {
         this.adress = adress;
     }
 
-    public void changeEmail(String newValue) throws PatternSyntaxException {
+    public void changeEmail(String newValue) {
         try {
             String newEmail = newValue;
             String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
