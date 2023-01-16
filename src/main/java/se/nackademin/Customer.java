@@ -2,7 +2,6 @@ package se.nackademin;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.PatternSyntaxException;
 
 public class Customer {
     private String firstname;
@@ -10,7 +9,13 @@ public class Customer {
     private String adress;
     private String email;
     private Long phoneNumber;
+
     public List<Customer> listOfCustomers = new ArrayList<>();
+
+    private int customerId;
+
+    public List<String> customerList = new ArrayList<>();
+
 
     Customer(String firstname, String lastname, String adress, String email, Long phoneNumber) {
         this.firstname = firstname;
@@ -18,6 +23,15 @@ public class Customer {
         this.adress = adress;
         this.email = email;
         this.phoneNumber = phoneNumber;
+
+        customerList.add(this.firstname + " " +  this.lastname);
+      
+    }
+
+    public Customer() {}
+
+    public List<String> getCustomerList() {
+        return customerList;
     }
 
     public Long getPhoneNumber() {
