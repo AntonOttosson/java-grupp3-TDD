@@ -14,6 +14,7 @@ public class Customer {
         this.adress = adress;
         this.email = email;
         this.phoneNumber = phoneNumber;
+      
     }
 
     public Long getPhoneNumber() {
