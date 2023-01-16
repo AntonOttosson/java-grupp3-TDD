@@ -9,6 +9,9 @@ public class Customer {
     private String adress;
     private String email;
     private Long phoneNumber;
+
+    public List<Customer> listOfCustomers = new ArrayList<>();
+
     private int customerId;
 
     public List<String> customerList = new ArrayList<>();
@@ -55,7 +58,7 @@ public class Customer {
         this.lastname = newValue;
     }
 
-    public void setEmail(String newValue) {
+    private void setEmail(String newValue) {
         this.email = newValue.trim();
     }
 
@@ -69,6 +72,26 @@ public class Customer {
 
     public void setAdress(String adress) {
         this.adress = adress;
+    }
+
+    public void changeEmail(String newValue) throws PatternSyntaxException {
+        try {
+            String newEmail = newValue;
+            String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+            newEmail.matches(regex);
+            setEmail(newValue);
+        } catch (Exception e) {
+            System.out.println("Invalid E-mail address.");
+        }
+
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
 }

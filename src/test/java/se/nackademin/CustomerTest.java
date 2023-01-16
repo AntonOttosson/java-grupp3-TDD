@@ -3,9 +3,12 @@ package se.nackademin;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
 
-
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.Test;
 
 public class CustomerTest {
@@ -43,8 +46,19 @@ public class CustomerTest {
     }
 
     @Test
+    // Test that Customer object is Not Null after creation.
     public void CustomerObjectIsNotNull() {
-        Customer cust3 = new Customer("Björn", "Adolffsson", "Julgränd", "bjorn@jobb.nu", 46738996655L);
-        assertNotNull(cust3);
+        Customer cust5 = new Customer("Björn", "Adolffsson", "Julgränd", "bjorn@jobb.nu", 46738996655L);
+        assertNotNull(cust5);
     }
-}
+
+    @Test
+    public void AssertCustomerArrayListNotNull() {
+        // Test that Array of customers get created.
+        Customer cust6 = new Customer("Björn", "Adolffsson", "Julgränd", "bjorn@jobb.nu", 46738996655L);
+        List<Customer> listOfCustomers = new ArrayList<>();
+        listOfCustomers.add(cust6);
+        assertNotNull(listOfCustomers);
+    }
+
+    }
