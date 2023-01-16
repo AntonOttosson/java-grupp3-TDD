@@ -1,6 +1,8 @@
 package se.nackademin;
 
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import static org.junit.Assert.*;
 /* import org.hamcrest.collection.IsMapContaining;
 
@@ -11,9 +13,16 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat; */
 
+//import java.io.IOException;
+
+import org.junit.Rule;
+
 public class InventoryTest {
     Inventory inventory = new Inventory();
 
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
+    
     @Test
     public void checkStockFalse() {
         inventory.addToStock("Hatt", 100);
@@ -73,7 +82,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void shouldCheckVendorAvailanilityFalse() {
+    public void shouldCheckVendorAvailabilityFalse() {
         inventory.setNewVendor("");
         String vendorName = inventory.getVendorName(0);
         boolean checkVendor = inventory.checkVendorAvailability(vendorName);
