@@ -1,25 +1,78 @@
 package se.nackademin;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-public class Hattest {
+public class HatTest {
     
+
     @Test
-    public void assertpriceisfloat(){
-        Hat hat = new Hat("Cool cap", "Nike", "XL", "Red", 105, 
-        "Red trucker cap", "Headwear");
-        
-        assertSame(float.class, hat.price);
-    }
-    @Test
-    public void assertisheadwear(){
-        Hat hat = new Hat("Top hat", "Fancy", "M", "black"
-        , 5000, "A top hat", "Headwear");
-        String hw = "Headwear";
-        assertSame("Not headwear", hat.producttype, hw);
+    public void assertNamenotNull(){
+        Hat ahat = new Hat("Slick top hat", "Fancy hat company", "XL", "purple", 
+        250.5f, "Hat", "Headwear");
+
+        assertNotNull(ahat.name);
+      
     }
 
+    @Test
+    public void assertBrandnotNull(){
+        Hat ahat = new Hat("Slick top hat", "Fancy hat company", "XL", "purple", 
+        250.5f, "Hat", "Headwear");
+
+        assertNotNull(ahat.brand);
+    }
+
+    @Test
+    public void assertSizenotNull(){
+        Hat ahat = new Hat("Slick top hat", "Fancy hat company", "XL", "purple", 
+        250.5f, "Hat", "Headwear");
+
+        assertNotNull(ahat.size);
+    }
+
+    @Test
+    public void assertColornotNull(){
+        Hat ahat = new Hat("Slick top hat", "Fancy hat company", "XL", "purple", 
+        250.5f, "Hat", "Headwear");
+
+        assertNotNull(ahat.color);
+    }
+
+    @Test
+    public void assertPricenotNull(){
+        Hat ahat = new Hat("Slick top hat", "Fancy hat company", "XL", "purple", 
+        250.5f, "Hat", "Headwear");
+
+        assertNotNull(ahat.price);
+    }
+
+    @Test
+    public void assertProductnameNotNull(){
+        Hat ahat = new Hat("Slick top hat", "Fancy hat company", "XL", "purple", 
+        250.5f, "Hat", "Headwear");
+
+        assertNotNull(ahat.productname);
+    }
+
+    @Test
+    public void assertProducttypeNotNull(){
+        Hat ahat = new Hat("Slick top hat", "Fancy hat company", "XL", "purple", 
+        250.5f, "Hat", "Headwear");
+
+        assertNotNull(ahat.producttype);
+    }
+
+    @Test 
+    public void assertIsheadwear(){
+        Hat ahat = new Hat("Slick top hat", "Fancy hat company", "XL", "purple", 
+        250.5f, "Hat", "Headwear");
+        assertEquals("Headwear", ahat.producttype);
+    }
 
 }

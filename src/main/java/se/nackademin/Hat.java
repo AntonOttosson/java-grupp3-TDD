@@ -4,7 +4,7 @@ public class Hat implements Product {
     String name, brand, size, color, productname, producttype;
     float price;
 
-    Hat(String name, String brand, String size, String color, float price, String productname, String producttype) {
+    Hat(String name, String brand, String size, String color, Float price, String productname, String producttype) {
         this.name = name;
         this.brand = brand;
         this.size = size;
