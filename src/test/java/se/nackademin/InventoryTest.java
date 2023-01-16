@@ -5,15 +5,7 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.hamcrest.Matcher;
-import org.hamcrest.collection.IsArrayContaining;
 import org.hamcrest.collection.IsEmptyCollection;
-import org.hamcrest.collection.IsMapContaining;
-import org.hamcrest.core.IsAnything;
-import org.hamcrest.core.IsInstanceOf;
 import static org.hamcrest.CoreMatchers.is;
 
 import static org.hamcrest.MatcherAssert.assertThat;
