@@ -9,14 +9,19 @@ public class Inventory {
     private boolean vendorExists;
     public String productName;
     private Boolean inStock;
+    private int amount;
     public HashMap<String, Integer> productMap = new HashMap<String, Integer>();
     public List<String> vendorList = new ArrayList<>();
 
-    public Inventory(String vendor, String productName, Boolean inStock, Boolean vendorExists) {
+    public Inventory(String vendor, String productName, Boolean inStock, Boolean vendorExists, int amount) {
         this.vendor = vendor;
         this.vendorExists = vendorExists;
         this.productName = productName;
         this.inStock = inStock;
+        this.amount = amount;
+
+        vendorList.add(0, this.vendor);
+        productMap.put(this.productName, this.amount);
     }
 
     public Inventory() {}
@@ -67,5 +72,9 @@ public class Inventory {
 
     public void addToStock(String productName, int amount) {
         productMap.put(productName, amount);
+    }
+
+    public int getAmount() {
+        return this.amount;
     }
 }

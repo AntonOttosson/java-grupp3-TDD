@@ -1,6 +1,8 @@
 package se.nackademin;
 
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import static org.junit.Assert.*;
 /* import org.hamcrest.collection.IsMapContaining;
 
@@ -11,8 +13,57 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat; */
 
+//import java.io.IOException;
+
+import org.junit.Rule;
+
 public class InventoryTest {
     Inventory inventory = new Inventory();
+
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
+
+    @Test
+    public void shouldTestVendorNameEqual() {
+        Inventory inventoryy = new Inventory("Postnord", "Hat", true, true, 100);
+        String vendorName = inventoryy.getVendorName(0);
+        assertEquals("Postnord", vendorName);
+    }
+
+    @Test
+    public void shouldTestVendorNameNotEqual() {
+        Inventory inventoryy = new Inventory("Postnord", "Hat", true, true, 100);
+        String vendorName = inventoryy.getVendorName(0);
+        assertNotEquals("Instabox", vendorName);
+    }
+
+    @Test
+    public void shouldTestCorrectProductName() {
+        Inventory inventoryy = new Inventory("Postnord", "Hat", true, true, 100);
+        String productName = inventoryy.getProductName();
+        assertEquals("Hat", productName);
+    }
+
+    @Test
+    public void shouldTestNotExistingProductName() {
+        Inventory inventoryy = new Inventory("Postnord", "Hat", true, true, 100);
+        String productName = inventoryy.getProductName();
+        assertNotEquals("Beanie", productName);
+    }
+
+    @Test
+    public void shouldTestCorrectAmount() {
+        Inventory inventoryy = new Inventory("Postnord", "Hat", true, true, 100);
+        int amount = inventoryy.getAmount();
+        assertEquals(100, amount);
+    }
+
+    @Test
+    public void shouldTestWrongAmount() {
+        Inventory inventoryy = new Inventory("Postnord", "Hat", true, true, 100);
+        int amount = inventoryy.getAmount();
+        assertNotEquals(200, amount);
+    }
 
     @Test
     public void checkStockFalse() {
@@ -73,7 +124,7 @@ public class InventoryTest {
     }
 
     @Test
-    public void shouldCheckVendorAvailanilityFalse() {
+    public void shouldCheckVendorAvailabilityFalse() {
         inventory.setNewVendor("");
         String vendorName = inventory.getVendorName(0);
         boolean checkVendor = inventory.checkVendorAvailability(vendorName);

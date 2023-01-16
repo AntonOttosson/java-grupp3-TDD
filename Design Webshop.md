@@ -44,11 +44,11 @@
 - [ ] setNewName
 - [ ] setNewBrand
 - [ ] setNewSize
-- [ ] addNewProduct
-- [ ] checkStock
-- [ ] reStock
+- [x] addNewProduct
+- [x] checkStock
+- [x] reStock
 - [ ] createOrder
 - [ ] cancelOrder
 - [ ] sendOrder
 - [ ] newCustomer
-- [ ] checkVendorAvailability
+- [x] checkVendorAvailability
