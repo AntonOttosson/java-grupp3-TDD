@@ -1,6 +1,8 @@
 package se.nackademin;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.PatternSyntaxException;
 
 public class Customer {
     private String firstname;
@@ -8,6 +10,7 @@ public class Customer {
     private String adress;
     private String email;
     private Long phoneNumber;
+    public List<Customer> listOfCustomers = new ArrayList<>();
 
     Customer(String firstname, String lastname, String adress, String email, Long phoneNumber) {
         this.firstname = firstname;
@@ -57,14 +60,14 @@ public class Customer {
         this.adress = adress;
     }
 
-    public String changeEmail(String newValue) {
-        String newEmail = newValue;
-        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-        if (newEmail.matches(regex)) {
+    public void changeEmail(String newValue) throws PatternSyntaxException {
+        try {
+            String newEmail = newValue;
+            String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+            newEmail.matches(regex);
             setEmail(newValue);
-            return newEmail;
-        } else {
-            return null;
+        } catch (Exception e) {
+            System.out.println("Invalid E-mail address.");
         }
 
     }
