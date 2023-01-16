@@ -24,6 +24,13 @@ public class InventoryTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
+    public void shouldTestNullValues() {
+        Inventory inventoryy = new Inventory(null, null, null, false, 0);
+        String vendorName = inventoryy.getVendorName(0);
+        assertNull(vendorName);
+    }
+
+    @Test
     public void shouldTestVendorNameEqual() {
         Inventory inventoryy = new Inventory("Postnord", "Hat", true, true, 100);
         String vendorName = inventoryy.getVendorName(0);
