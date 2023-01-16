@@ -5,8 +5,9 @@ public class Customer {
     private String adress;
     private String email;
     private Long phoneNumber;
+    private int customerId;
 
-    Customer(String name, String adress, String email, Long phoneNumber) {
+    Customer(String name, String adress, String email, Long phoneNumber, int customerId) {
         this.name = name;
         this.adress = adress;
         this.email = email;
