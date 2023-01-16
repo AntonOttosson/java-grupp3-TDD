@@ -8,8 +8,9 @@ public class Customer {
     private Long phoneNumber;
     private int customerId;
 
-    Customer(String name, String adress, String email, Long phoneNumber) {
-        this.name = name;
+    Customer(String firstname, String lastname, String adress, String email, Long phoneNumber) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.adress = adress;
         this.email = email;
         this.phoneNumber = phoneNumber;
